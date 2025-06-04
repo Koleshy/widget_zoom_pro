@@ -1,3 +1,7 @@
+## [0.0.6] - 2025.06.04
+
+- Added `imageErrorBuilder` option to `WidgetZoom`.
+
 ## [0.0.5] - 2024.12.28
 
 - Added `hoverCursor` option to `WidgetZoom`.

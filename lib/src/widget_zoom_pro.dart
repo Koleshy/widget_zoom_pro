@@ -37,6 +37,8 @@ class WidgetZoomPro extends StatefulWidget {
   /// Controls whether the full screen image will be closed once the ESC key is pressed.
   final bool closeFullScreenImageOnEscape;
 
+  final Widget Function(BuildContext, Object, StackTrace?)? imageErrorBuilder;
+
   const WidgetZoomPro({
     Key? key,
     this.enableEmbeddedView = true,
@@ -48,6 +50,7 @@ class WidgetZoomPro extends StatefulWidget {
     this.closeFullScreenImageOnDispose = false,
     this.closeFullScreenImageOnEscape = false,
     this.hoverCursor = SystemMouseCursors.basic,
+    this.imageErrorBuilder,
     required this.heroAnimationTag,
     required this.zoomWidget,
   }) : super(key: key);
@@ -231,6 +234,7 @@ class _WidgetZoomProState extends State<WidgetZoomPro>
                   ? Image(
                       image: (widget.zoomWidget as Image).image,
                       fit: BoxFit.contain,
+                      errorBuilder: widget.imageErrorBuilder,
                     )
                   : widget.zoomWidget,
               minScale: widget.minScaleFullscreen,
